@@ -1075,6 +1075,7 @@ extern "C" void conn_teardown(void *cls, bool *teardown_96, bool *teardown_110) 
     if (*teardown_110 && close_window) {
         reset_loop = true;
     }
+    if (use_audio) audio_renderer_stop();
 }
 
 extern "C" void audio_process (void *cls, raop_ntp_t *ntp, audio_decode_struct *data) {
