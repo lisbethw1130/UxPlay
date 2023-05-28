@@ -1488,7 +1488,12 @@ int main (int argc, char *argv[]) {
         } else {
             raop_stop(raop);
         }
-        if (use_audio) audio_renderer_stop();
+        if (use_audio) {
+            audio_renderer_destroy();
+            audio_renderer_init(render_logger, audiosink.c_str(), &audio_sync, &video_sync);
+            
+
+        }
         if (use_video && close_window) {
             video_renderer_destroy();
             video_renderer_init(render_logger, server_name.c_str(), videoflip, video_parser.c_str(),
