@@ -1110,6 +1110,7 @@ extern "C" void video_process (void *cls, raop_ntp_t *ntp, h264_decode_struct *d
 
 extern "C" void audio_flush (void *cls) {
     if (use_audio) {
+        LOGI("audio FLUSHED!!");
         audio_renderer_flush();
     }
 }
