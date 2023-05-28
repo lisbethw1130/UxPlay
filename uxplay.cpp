@@ -1489,9 +1489,10 @@ int main (int argc, char *argv[]) {
             raop_stop(raop);
         }
         if (use_audio) {
+            LOGI("audio renderer reinit");
             audio_renderer_destroy();
             audio_renderer_init(render_logger, audiosink.c_str(), &audio_sync, &video_sync);
-            
+
 
         }
         if (use_video && close_window) {
